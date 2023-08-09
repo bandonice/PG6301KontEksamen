@@ -2,9 +2,9 @@
 const mongoose = require('mongoose');
 
 const loggedHourSchema = new mongoose.Schema({
-  employee: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' },
-  activity: { type: mongoose.Schema.Types.ObjectId, ref: 'Activity' },
-  hours: Number,
+  name: String,
+  department: String,
+  loggedHours: Number,
 });
 
 const LoggedHour = mongoose.model('LoggedHour', loggedHourSchema);

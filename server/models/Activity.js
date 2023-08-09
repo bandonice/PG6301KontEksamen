@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const activitySchema = new mongoose.Schema({
   name: String,
+  department: String
   // Add other activity fields as needed
 });
 

@@ -6,10 +6,13 @@ const Activity = require('./models/Activity');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const activityRoutes = require('./routes/activities');
+const loggedHours = require('./routes/loggedhours');
+const LoggedHour = require('./models/LoggedHour');
 
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api', activityRoutes);
+app.use('/api', loggedHours);
 
 
 mongoose.connect('mongodb://localhost:27017/prot_time_management_db', {
@@ -39,6 +42,7 @@ app.get('/activities', async (req, res) => {
     res.status(500).json({ message: 'Error fetching activities' });
   }
 });
+
 
 
 app.listen(port, () => {
