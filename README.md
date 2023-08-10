@@ -7,11 +7,9 @@ In this application managers can log onto a manager dashboard where they can cre
 
 # How to start/run the code
 
-1. When you have opened the project, open the terminal and type "cd client". This will change directories to the client Then type "npm i" in the terminal. This will install necessary dependencies in the client folder.
+1. When you have opened the project, open the terminal and type "cd client". This will change directories to the client Then type "npm i" in the terminal. This will install necessary dependencies in the client folder. After this type "npm start" to start the frontend. 
 
-2. Cd out of the client by typing "cd.." in the terminal.
-
-3. Open the terminal and type "cd server". This will change directories to the server. Then type "npm i" in the terminal. This will install necessary dependencies in the server folder.
+3. Open another terminal and type "cd server". This will change directories to the server. Then type "npm i" in the terminal. This will install necessary dependencies in the server folder. After this you can type "npm run dev" to start the server.
 
 4. While inside the server type "node seed.js" in the terminal. Seed.js attempts to connect to a MongoDB instance running on localhost. This means that you must have MongoDB installed and running on your local machine.
 
