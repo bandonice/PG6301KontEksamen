@@ -19,8 +19,8 @@ While inside the server type "node seed.js" in the terminal. Seed.js attempts to
 
 In order to log in we have test users for both employees and managers.
 
-Employee Test user: Username: employee1, Password: password123
-Manager Test user: Username: manager1: Password: managerpass123 
+1. Employee Test user: Username: employee1, Password: password123
+2. Manager Test user: Username: manager1: Password: managerpass123 
 
 
 # Code structure
