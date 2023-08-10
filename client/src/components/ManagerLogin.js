@@ -59,7 +59,7 @@ const EmployeeLogin = () => {
         </div>
         <button type="submit">Login</button>
       </form>
-      <Link to="/manager/dashboard">Go to Manager Dashboard</Link>
+      <Link to="/">Go to Employee Login page</Link>
     </div>
   );
 };

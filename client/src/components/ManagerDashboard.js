@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 // Component for creating activities
@@ -190,6 +191,8 @@ const ManagerDashboard = () => {
           />
         </div>
       )}
+
+    <Link to="/manager/login">Go to Manager Login page</Link>
     </div>
   );
 };

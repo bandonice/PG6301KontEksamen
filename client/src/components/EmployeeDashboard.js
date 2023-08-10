@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+
 
 const EmployeeDashboard = () => {
   const [activities, setActivities] = useState([]);
@@ -102,6 +104,8 @@ const EmployeeDashboard = () => {
         </div>
         <button type="button" onClick={handleLogHours}>Log Hours</button>
       </form>
+    <Link to="/">Go to Employee Login page</Link>
+
     </div>
   );
 };
