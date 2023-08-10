@@ -1,10 +1,15 @@
-// server/models/Activity.js
+// server/models/Activity.js (or similar)
 const mongoose = require('mongoose');
 
 const activitySchema = new mongoose.Schema({
-  name: String,
-  department: String
-  // Add other activity fields as needed
+  name: {
+    type: String,
+    required: true,
+  },
+  department: {
+    type: String, // Assuming department is a string
+    required: true,
+  },
 });
 
 const Activity = mongoose.model('Activity', activitySchema);

@@ -1,13 +1,67 @@
-// client/src/components/ManagerLogin.js
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom'; // Import Navigate
+import axios from 'axios';
 
-const ManagerLogin = () => {
+const EmployeeLogin = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // State to track authentication
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('/api/auth/manager/login', {
+        username,
+        password,
+      });
+
+      // Handle the response, e.g., redirect to dashboard or show a success message
+      console.log('Login successful!', response.data);
+
+      // Update authentication status
+      setIsAuthenticated(true);
+    } catch (error) {
+      // Handle error, e.g., show an error message
+      console.error('Login failed!', error);
+    }
+  };
+
+  // If authenticated, redirect to the manager dashboard
+  if (isAuthenticated) {
+    return <Navigate to="/manager/dashboard" />;
+  };
+
+
   return (
     <div>
       <h2>Manager Login</h2>
-      {/* Add form elements for manager login */}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <Link to="/manager/dashboard">Go to Manager Dashboard</Link>
     </div>
   );
 };
 
-export default ManagerLogin;
+export default EmployeeLogin;

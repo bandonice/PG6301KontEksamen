@@ -7,7 +7,9 @@ const ActivityController = require('../controllers/ActivityController');
 router.get('/activities', ActivityController.getAllActivities);
 
 // Create a new activity
-router.post('/activities', ActivityController.createActivity);
+router.post('/activities', ActivityController.createActivity, (req, res) => {
+    console.log('Received request to create activity:', req.body);
+});
 
 // Edit an existing activity
 router.put('/activities/:id', ActivityController.editActivity);
