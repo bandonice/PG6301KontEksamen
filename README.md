@@ -7,15 +7,15 @@ In this application managers can log onto a manager dashboard where they can cre
 
 # How to start/run the code
 
-1. When you have opened the project, open the terminal and type "cd client". This will change directories to the client Then type "npm i" in the terminal. This will install necessary dependencies in the client folder. After this type "npm start" to start the frontend. 
+1. When you have opened the project, open the terminal and type "cd client". This will change directories to the client Then type "npm i" in the terminal. This will install necessary dependencies in the client folder. After this type "npm start" to start the frontend.
 
-3. Open another terminal and type "cd server". This will change directories to the server. Then type "npm i" in the terminal. This will install necessary dependencies in the server folder. After this you can type "npm run dev" to start the server.
+2.	Open another terminal and type "cd server". This will change directories to the server. Then type "npm i" in the terminal. This will install the necessary dependencies in the server folder.
 
-4. While inside the server type "node seed.js" in the terminal. Seed.js attempts to connect to a MongoDB instance running on localhost. This means that you must have MongoDB installed and running on your local machine.
+While inside the server type "node seed.js" in the terminal. Seed.js attempts to connect to a MongoDB instance running on localhost. This means that you must have MongoDB installed and running on your local machine. The database name is hardcoded in the seed file as prot_time_management_db. Your MongoDB should not have a database with the same name, or the seeding script will overwrite it.
 
-5. The database name is hardcoded in the seed file as prot_time_management_db. Your MongoDB should not have a database with the same name, or the seeding script will overwrite it.
+3.	After this you can type "npm run dev" to start the server.
 
-6. Done! You should now have a working project. Open a browser and type in http://localhost:3000 and you are good to go.
+4.	Done! You should now have a working project. Open a browser and type in http://localhost:3000 and you are good to go.
 
 In order to log in we have test users for both employees and managers.
 
