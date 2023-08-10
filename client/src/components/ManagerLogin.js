@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom'; // Import Navigate
+import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 
 const EmployeeLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // State to track authentication
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,18 +16,15 @@ const EmployeeLogin = () => {
         password,
       });
 
-      // Handle the response, e.g., redirect to dashboard or show a success message
       console.log('Login successful!', response.data);
 
-      // Update authentication status
+      
       setIsAuthenticated(true);
     } catch (error) {
-      // Handle error, e.g., show an error message
       console.error('Login failed!', error);
     }
   };
 
-  // If authenticated, redirect to the manager dashboard
   if (isAuthenticated) {
     return <Navigate to="/manager/dashboard" />;
   };

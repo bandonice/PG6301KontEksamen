@@ -1,4 +1,3 @@
-// server/models/Activity.js (or similar)
 const mongoose = require('mongoose');
 
 const activitySchema = new mongoose.Schema({
@@ -7,7 +6,7 @@ const activitySchema = new mongoose.Schema({
     required: true,
   },
   department: {
-    type: String, // Assuming department is a string
+    type: String, 
     required: true,
   },
 });

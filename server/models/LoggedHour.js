@@ -1,4 +1,3 @@
-// server/models/LoggedHour.js
 const mongoose = require('mongoose');
 
 const loggedHourSchema = new mongoose.Schema({

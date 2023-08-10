@@ -1,7 +1,5 @@
-// server/controllers/ActivityController.js
 const LoggedHour = require('../models/LoggedHour');
 
-// Get all activities
 exports.getAllLoggedHours = async (req, res) => {
   try {
     const loggedHours = await LoggedHour.find();
@@ -11,11 +9,10 @@ exports.getAllLoggedHours = async (req, res) => {
   }
 };
 
-// Create a new logged hour entry
 exports.createLoggedHour = async (req, res) => {
-    const { name, department, loggedHours } = req.body; // Destructure all needed fields
+    const { name, department, loggedHours } = req.body; 
     try {
-      const newLoggedHour = new LoggedHour({ name, department, loggedHours }); // Use the destructured fields
+      const newLoggedHour = new LoggedHour({ name, department, loggedHours }); 
       await newLoggedHour.save();
       res.json({ message: 'New logged hour created successfully' });
     } catch (error) {

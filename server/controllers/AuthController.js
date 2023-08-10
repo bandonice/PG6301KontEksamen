@@ -1,8 +1,6 @@
-// server/controllers/AuthController.js
 const Employee = require('../models/Employee');
 const Manager = require('../models/Manager');
 
-// Employee login
 exports.employeeLogin = async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -17,7 +15,6 @@ exports.employeeLogin = async (req, res) => {
   }
 };
 
-// Manager login
 exports.managerLogin = async (req, res) => {
   const { username, password } = req.body;
   try {

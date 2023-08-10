@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-// Component for creating activities
 const CreateActivityForm = ({ onCreateActivity }) => {
   const [activityName, setActivityName] = useState('');
   const [activityDepartment, setActivityDepartment] = useState('');
@@ -38,7 +37,6 @@ const CreateActivityForm = ({ onCreateActivity }) => {
   );
 };
 
-// Component for editing activities
 const EditActivityForm = ({ activity, onEditActivity, onCancelEdit }) => {
   const [editActivityName, setEditActivityName] = useState(activity.name);
   const [editActivityDepartment, setEditActivityDepartment] = useState(activity.department);
@@ -83,7 +81,6 @@ const EditActivityForm = ({ activity, onEditActivity, onCancelEdit }) => {
   );
 };
 
-// Component for displaying a list of activities
 const ActivityList = ({ activities, onDeleteActivity, onEditActivity }) => (
     <ul>
       {activities.map((activity) => (
@@ -98,10 +95,9 @@ const ActivityList = ({ activities, onDeleteActivity, onEditActivity }) => (
 
 const ManagerDashboard = () => {
   const [activities, setActivities] = useState([]);
-  const [editedActivity, setEditedActivity] = useState(null); // Store the currently edited activity
+  const [editedActivity, setEditedActivity] = useState(null); 
 
   useEffect(() => {
-    // Fetch activities from the API
     axios
       .get('/api/activities')
       .then((response) => setActivities(response.data))
@@ -115,12 +111,10 @@ const ManagerDashboard = () => {
         department: department,
       })
       .then((response) => {
-        // Update activities state with new activity
         setActivities([...activities, response.data]);
       })
       .catch((error) => {
         console.error('Error creating activity:', error);
-        // Handle error if needed and show error message
       });
   };
 
@@ -132,16 +126,14 @@ const ManagerDashboard = () => {
       })
       .then((response) => {
         console.log('Activity updated successfully:', response.data);
-        // Update the activities state with the updated activity
         const updatedActivities = activities.map((activity) =>
           activity._id === id ? { ...activity, name: name, department: department } : activity
         );
         setActivities(updatedActivities);
-        setEditedActivity(null); // Reset the edited activity
+        setEditedActivity(null); 
       })
       .catch((error) => {
         console.error('Error updating activity:', error);
-        // Handle error if needed and show error message
       });
   };
 
@@ -149,23 +141,19 @@ const ManagerDashboard = () => {
     axios
       .delete(`/api/activities/${id}`)
       .then(() => {
-        // Update activities state by removing the deleted activity
         const updatedActivities = activities.filter((activity) => activity._id !== id);
         setActivities(updatedActivities);
       })
       .catch((error) => {
         console.error('Error deleting activity:', error);
-        // Handle error if needed and show error message
       });
   };
 
   const handleStartEdit = (activity) => {
-    // Set the currently edited activity when the Edit button is clicked
     setEditedActivity(activity);
   };
 
   const handleCancelEdit = () => {
-    // Clear the currently edited activity when the Cancel button is clicked
     setEditedActivity(null);
   };
 

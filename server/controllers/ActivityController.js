@@ -1,7 +1,5 @@
-// server/controllers/ActivityController.js
 const Activity = require('../models/Activity');
 
-// Get all activities
 exports.getAllActivities = async (req, res) => {
   try {
     const activities = await Activity.find();
@@ -11,7 +9,6 @@ exports.getAllActivities = async (req, res) => {
   }
 };
 
-// Create a new activity
 exports.createActivity = async (req, res) => {
   const { name, department } = req.body;
   try {
@@ -25,17 +22,14 @@ exports.createActivity = async (req, res) => {
   
 };
 
-// Edit an existing activity
-// Edit an existing activity
 exports.editActivity = async (req, res) => {
   const activityId = req.params.id;
   const { name, department } = req.body;
   try {
-    // Find the activity by its ID and update it
     const updatedActivity = await Activity.findByIdAndUpdate(
       activityId,
       { name, department },
-      { new: true } // Return the updated activity
+      { new: true } 
     );
     res.json(updatedActivity);
   } catch (error) {
@@ -44,7 +38,6 @@ exports.editActivity = async (req, res) => {
 };
 
 
-// Delete an activity
 exports.deleteActivity = async (req, res) => {
   const activityId = req.params.id;
   try {

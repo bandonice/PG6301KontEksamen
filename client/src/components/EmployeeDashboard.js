@@ -11,12 +11,10 @@ const EmployeeDashboard = () => {
   const [loggedHours, setLoggedHours] = useState([]);
 
   useEffect(() => {
-    // Fetch activities from the API
     axios.get('/api/activities')
       .then(response => setActivities(response.data))
       .catch(error => console.error('Error fetching activities:', error));
 
-    // Fetch logged hours for the employee (replace '1' with actual employee ID)
     axios.get(`/api/loggedhours`)
       .then(response => setLoggedHours(response.data))
       .catch(error => console.error('Error fetching logged hours:', error));
@@ -26,7 +24,6 @@ const EmployeeDashboard = () => {
     const selectedActivityName = event.target.value;
     setSelectedActivity(selectedActivityName);
 
-    // Find the selected activity and set its department as default
     const selectedActivityObject = activities.find(activity => activity.name === selectedActivityName);
     if (selectedActivityObject) {
       setDepartment(selectedActivityObject.department);
@@ -45,25 +42,20 @@ const EmployeeDashboard = () => {
         loggedHours: hoursLogged,
       })
       .then(response => {
-        // Update loggedHours state with new entry
         setLoggedHours([...loggedHours, {
           _id: response.data._id,
           name: selectedActivity,
           department: department,
           loggedHours: hoursLogged,
         }]);
-        // Reset form fields
         setSelectedActivity('');
         setDepartment('');
         setHoursLogged(0);
-        // Show success message if needed
       })
       .catch(error => {
         console.error('Error logging hours:', error);
-        // Handle error if needed and show error message
       });
     } else {
-      // Handle incomplete data and show error message
     }
   };
 

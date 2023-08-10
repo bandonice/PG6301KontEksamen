@@ -1,4 +1,3 @@
-// server/server.js
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -26,7 +25,6 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// ... (other server setup)
 
 
 app.get('/', (req, res) => {
